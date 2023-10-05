@@ -1,8 +1,14 @@
-import React from 'react'
-
-const Item = () => {
+import React from 'react';
+import "./Item.css";
+import { Link } from 'react-router-dom';
+const Item = ({info}) => {
   return (
-    <div>Item</div>
+    <>
+      <img src={info.image} alt="" className='product'/>
+      <p className='product'>{info.title}</p>
+      <Link to={`item/${info.id}`}>Comprar</Link>
+      </>
+    
   )
 }
 

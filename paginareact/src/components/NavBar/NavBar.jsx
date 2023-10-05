@@ -1,30 +1,31 @@
-import React from 'react'
 
-import CartWidget from '../CartWidget/CartWidget'
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import CartWidget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom';
 const NavBar = () => {
-    return (<>
-        <div className='container'>
-            <nav className='nav'>
-                <div className='nav_brand'>
-                    <a className='nav_link' href='#'>MiMarca</a>
-                </div>
-                <ul className='nav_list'>
-                    <li>
-                        <a className='nav_link' href="#">Categoria</a>
-                    </li>
-                    <li>
-                        <a className='nav_link' href="#">Categoria</a>
-                    </li>
-                    <li>
-                    <a className='nav_link' href="#">
-                    <CartWidget></CartWidget>
-                    </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </>
-    )
+    return (
+        <Navbar expand="lg" className="bg-body-tertiary">
+            <Container>
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <NavLink to="/">Home</NavLink>
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavLink to='/categoria/Electrodomesticos'>Electrodomesticos</NavLink>
+                            <hr />
+                            <NavLink to='/categoria/Celulares'>
+                                Celulares
+                            </NavLink>
+                            <hr />
+                            <NavLink to='/categoria/Computadoras'>Computadoras</NavLink>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+            <CartWidget></CartWidget>
+        </Navbar>
+    );
+};
 
-}
-export default NavBar
+export default NavBar;
